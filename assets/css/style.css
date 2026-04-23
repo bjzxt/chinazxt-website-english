@@ -419,10 +419,14 @@ body {
   display: inline-block;
   margin-top: 15px;
   position: relative;
+  width: auto;
+  align-self: flex-start;
 }
 
 .btn-image img {
   display: block;
+  width: auto;
+  height: 26px;
 }
 
 .btn-image .btn-text {
