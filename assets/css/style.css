@@ -246,7 +246,7 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(135deg, rgba(37, 99, 235, 0.85), rgba(30, 64, 175, 0.9));
+  background: linear-gradient(135deg, rgba(37, 99, 235, 0.5), rgba(30, 64, 175, 0.6));
   z-index: 1;
 }
 
@@ -423,6 +423,29 @@ body {
 .btn-image img {
   height: auto;
   display: block;
+}
+
+.btn-pill {
+  display: inline-block;
+  padding: 12px 30px;
+  background: linear-gradient(135deg, #4A90E2, #357ABD);
+  color: white;
+  text-decoration: none;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(52, 122, 189, 0.3);
+}
+
+.btn-pill:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(52, 122, 189, 0.4);
+  background: linear-gradient(135deg, #5A9EF2, #4589CD);
+}
+
+.feature-card .btn-pill {
+  margin-top: 15px;
 }
 
 .feature-card .feature-icon {
