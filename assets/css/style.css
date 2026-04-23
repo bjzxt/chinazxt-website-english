@@ -67,10 +67,21 @@ body {
 }
 
 .logo {
-  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+
+.logo-img {
+  height: 40px;
+  width: auto;
+}
+
+.logo-text {
+  font-size: 1.3rem;
   font-weight: 700;
   color: var(--primary-color);
-  text-decoration: none;
 }
 
 .nav-links {
@@ -226,10 +237,29 @@ body {
 
 /* Hero Section */
 .hero {
-  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  position: relative;
   color: white;
   text-align: center;
   padding: 100px 20px;
+  min-height: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(37, 99, 235, 0.85), rgba(30, 64, 175, 0.9));
+  z-index: 1;
+}
+
+.hero .container {
+  position: relative;
+  z-index: 2;
 }
 
 .hero h1 {
@@ -346,13 +376,61 @@ body {
 .feature-card {
   background: white;
   padding: 30px;
-  border-radius: 8px;
+  border-radius: 16px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  position: relative;
+  overflow: hidden;
+  min-height: 320px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  background-color: #f8fafc;
+}
+
+.feature-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-size: cover;
+  background-position: center;
+  z-index: 0;
+}
+
+.feature-card > * {
+  position: relative;
+  z-index: 1;
 }
 
 .feature-card h3 {
-  color: var(--primary-color);
+  color: white;
   margin-bottom: 15px;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.3);
+}
+
+.feature-card p {
+  color: rgba(255,255,255,0.95);
+  text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+}
+
+.feature-card .btn-link {
+  color: white;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+}
+
+.feature-card h3 {
+  color: white;
+  margin-bottom: 15px;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.3);
+}
+
+.feature-card .feature-icon {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+  display: block;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
 }
 
 .btn-link {
