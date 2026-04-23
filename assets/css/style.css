@@ -233,11 +233,12 @@ body {
   position: relative;
   color: white;
   text-align: center;
-  padding: 100px 20px;
-  min-height: 600px;
+  padding: 80px 20px;
+  min-height: min(500px, 40vw);
   display: flex;
   align-items: center;
   justify-content: center;
+  background-repeat: no-repeat;
 }
 
 .hero-overlay {
