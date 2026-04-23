@@ -1,0 +1,14 @@
+# robots.txt for Zhongxingtong Group website
+
+User-agent: *
+Allow: /
+
+# Disallow specific files if needed
+# Disallow: /private/
+# Disallow: /admin/
+
+# Sitemap location
+Sitemap: https://www.chinazxt.com/sitemap.xml
+
+# Crawl delay (optional)
+Crawl-delay: 1
