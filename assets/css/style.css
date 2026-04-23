@@ -69,19 +69,12 @@ body {
 .logo {
   display: flex;
   align-items: center;
-  gap: 10px;
   text-decoration: none;
 }
 
-.logo-img {
+.logo img {
   height: 40px;
   width: auto;
-}
-
-.logo-text {
-  font-size: 1.3rem;
-  font-weight: 700;
-  color: var(--primary-color);
 }
 
 .nav-links {
@@ -405,32 +398,37 @@ body {
 }
 
 .feature-card h3 {
-  color: white;
+  color: var(--primary-color);
   margin-bottom: 15px;
-  text-shadow: 0 1px 3px rgba(0,0,0,0.3);
 }
 
 .feature-card p {
-  color: rgba(255,255,255,0.95);
-  text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+  color: #333;
 }
 
 .feature-card .btn-link {
-  color: white;
-  text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+  color: var(--primary-color);
+  font-weight: 600;
 }
 
-.feature-card h3 {
-  color: white;
-  margin-bottom: 15px;
-  text-shadow: 0 1px 3px rgba(0,0,0,0.3);
+.feature-card .btn-link:hover {
+  color: var(--secondary-color);
+}
+
+.btn-image {
+  display: inline-block;
+  margin-top: 15px;
+}
+
+.btn-image img {
+  height: auto;
+  display: block;
 }
 
 .feature-card .feature-icon {
   font-size: 2.5rem;
   margin-bottom: 15px;
   display: block;
-  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
 }
 
 .btn-link {
