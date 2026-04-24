@@ -233,89 +233,34 @@ body {
   position: relative;
   color: white;
   text-align: center;
-  background-image: url('images/banner.png');
-  background-repeat: no-repeat;
-  background-position: center top;
-  background-size: cover;
-  display: flex;
-  align-items: stretch;
-}
-
-.hero-overlay {
-  position: relative;
-  width: 100%;
-  background: linear-gradient(135deg, rgba(37, 99, 235, 0.3), rgba(30, 64, 175, 0.4));
+  padding: 0;
+  min-height: min(500px, 40vw);
   display: flex;
   align-items: center;
   justify-content: center;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(37, 99, 235, 0.3), rgba(30, 64, 175, 0.4));
+  z-index: 1;
 }
 
 .hero .container {
   position: relative;
   z-index: 2;
-  padding: 60px 20px;
-  width: 100%;
-}
-
-.hero h1 {
-  font-size: 2.5rem;
-  margin-bottom: 20px;
-}
-
-.hero p {
-  font-size: 1.1rem;
-  margin-bottom: 30px;
-  opacity: 0.9;
-  max-width: 800px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.hero-stats {
-  display: flex;
-  justify-content: center;
-  gap: 40px;
-  margin: 40px 0;
-  flex-wrap: wrap;
+  padding: 80px 20px;
 }
 
 @media (max-width: 768px) {
   .hero {
-    min-height: auto;
-    padding: 40px 0;
-  }
-
-  .hero h1 {
-    font-size: 1.5rem;
-  }
-
-  .hero p {
-    font-size: 0.85rem;
-    margin-bottom: 15px;
-  }
-
-  .hero-stats {
-    gap: 15px;
-    margin: 15px 0;
-    flex-wrap: nowrap;
-    justify-content: space-between;
-  }
-
-  .stat {
-    min-width: 0;
-    flex: 1;
-  }
-
-  .stat-number {
-    font-size: 1.4rem;
-  }
-
-  .stat-label {
-    font-size: 0.7rem;
-  }
-
-  .stat-icon {
-    font-size: 1.5rem;
+    min-height: min(300px, 50vw);
   }
 }
 
@@ -653,16 +598,31 @@ footer {
   }
 
   .hero h1 {
-    font-size: 2rem;
+    font-size: 1.8rem;
   }
 
   .hero p {
-    font-size: 1rem;
+    font-size: 0.9rem;
+    margin-bottom: 15px;
   }
 
   .hero-stats {
-    flex-direction: column;
-    gap: 20px;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 10px;
+    justify-content: space-between;
+  }
+
+  .stat-number {
+    font-size: 1.4rem;
+  }
+
+  .stat-label {
+    font-size: 0.7rem;
+  }
+
+  .stat-icon {
+    font-size: 1.5rem;
   }
 
   .footer-content {
