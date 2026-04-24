@@ -260,7 +260,7 @@ body {
 
 @media (max-width: 768px) {
   .hero {
-    min-height: min(300px, 50vw);
+    min-height: 700px;
   }
 }
 
