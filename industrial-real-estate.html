@@ -7,56 +7,229 @@
   <link rel="stylesheet" href="assets/css/style.css?v=20250424d">
   <link rel="stylesheet" href="assets/css/images.css">
   <style>
-    .realestate-header {
-      background: linear-gradient(135deg, #1e40af, #2563eb);
+    /* Banner */
+    .business-header {
+      position: relative;
       color: white;
       text-align: center;
-      padding: 80px 20px;
+      padding: 0;
+      min-height: 400px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-image: url('images/ire/banner.png');
+      background-image: image-set(
+        url('images/ire/banner.png') 1x,
+        url('images/ire/banner@2x.png') 2x
+      );
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
     }
-    .realestate-header h1 {
-      font-size: 2.5rem;
+    .business-header .hero-overlay {
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: linear-gradient(135deg, rgba(37, 99, 235, 0.2), rgba(30, 64, 175, 0.3));
+      z-index: 1;
+    }
+    .business-header .container {
+      position: relative;
+      z-index: 2;
+      padding: 60px 20px;
+    }
+    .business-header h1 {
+      font-size: clamp(1.8rem, 4vw, 2.5rem);
       margin-bottom: 15px;
     }
-    .content-section {
-      padding: 60px 20px;
+    .business-header p {
+      font-size: clamp(1rem, 1.5vw, 1.25rem);
+      opacity: 0.9;
+    }
+
+    /* Overview */
+    .overview-section {
+      padding: clamp(25px, 3vw, 40px) 20px;
+    }
+    .overview-section h2 {
+      color: #333;
+      margin-bottom: 15px;
+    }
+    .overview-section p {
+      line-height: 1.8;
+      color: #555;
+    }
+
+    /* Service Cards - finance-taxation pattern */
+    .services-section {
+      padding: clamp(25px, 3vw, 40px) 20px;
+    }
+    .services-section h2 {
+      color: #333;
+      margin-bottom: 30px;
+      font-size: clamp(1.4rem, 2.5vw, 1.8rem);
     }
     .services-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 30px;
-      margin: 40px 0;
     }
     .service-card {
-      background: white;
+      border-radius: 24px;
       padding: 30px;
-      border-radius: 8px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-      border-left: 4px solid #2563eb;
+      min-height: 280px;
+      overflow: hidden;
+      background-image: url('images/ire/1.png');
+      background-image: image-set(
+        url('images/ire/1.png') 1x,
+        url('images/ire/1@2x.png') 2x
+      );
+      background-size: 100% 100%;
+      background-position: center;
+      background-repeat: no-repeat;
     }
     .service-card h3 {
-      color: #2563eb;
+      color: #1e40af;
       margin-bottom: 15px;
       font-size: 1.3rem;
     }
-    .properties-section {
-      background: #f9f9f9;
-      padding: 40px;
-      border-radius: 8px;
-      margin: 40px 0;
+    .service-card p {
+      color: #555;
+      font-size: 0.95rem;
+      line-height: 1.7;
+      margin-bottom: 12px;
     }
     .feature-list {
       list-style: none;
       padding: 0;
     }
     .feature-list li {
-      padding: 10px 0;
-      border-bottom: 1px solid #eee;
+      padding: 8px 0 8px 28px;
+      border-bottom: 1px solid rgba(0,0,0,0.1);
+      position: relative;
+      font-size: 0.9rem;
+      color: #555;
     }
-    .feature-list li:before {
-      content: "✓";
-      color: #2563eb;
-      font-weight: bold;
-      margin-right: 10px;
+    .feature-list li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 16px;
+      height: 16px;
+      background-image: url('images/ire/装饰.png');
+      background-image: image-set(url('images/ire/装饰.png') 1x, url('images/ire/装饰@2x.png') 2x);
+      background-size: contain;
+      background-repeat: no-repeat;
+      mix-blend-mode: multiply;
+    }
+
+    /* Property Portfolio - background image, white text */
+    .portfolio-section {
+      padding: clamp(40px, 5vw, 60px) 20px;
+    }
+    .portfolio-inner {
+      position: relative;
+      border-radius: 12px;
+      overflow: hidden;
+      background-image: url('images/ire/底图.png');
+      background-image: image-set(
+        url('images/ire/底图.png') 1x,
+        url('images/ire/底图@2x.png') 2x
+      );
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      padding: clamp(30px, 4vw, 50px);
+    }
+    .portfolio-inner::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0, 0, 0, 0.55);
+      z-index: 0;
+    }
+    .portfolio-inner > * {
+      position: relative;
+      z-index: 1;
+    }
+    .portfolio-inner h2 {
+      color: white;
+      text-align: center;
+      margin-bottom: 15px;
+      font-size: clamp(1.4rem, 2.5vw, 1.8rem);
+    }
+    .portfolio-inner > p {
+      color: rgba(255,255,255,0.85);
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 25px;
+    }
+    .portfolio-item {
+      text-align: center;
+    }
+    .portfolio-item h4 {
+      color: white;
+      margin-bottom: 8px;
+      font-size: 1.1rem;
+    }
+    .portfolio-item p {
+      color: rgba(255,255,255,0.75);
+      font-size: 0.9rem;
+    }
+
+    /* Why Choose Us */
+    .why-section {
+      padding: clamp(25px, 3vw, 40px) 20px;
+    }
+    .why-section h2 {
+      color: #333;
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: clamp(1.4rem, 2.5vw, 1.8rem);
+    }
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+    }
+    .why-card {
+      padding: 30px;
+      background: white;
+      border: 2px solid #2563eb;
+      border-radius: 8px;
+    }
+    .why-card h4 {
+      color: #1e40af;
+      margin-bottom: 15px;
+    }
+    .why-card p {
+      color: #555;
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 768px) {
+      .business-header {
+        min-height: 300px;
+      }
+      .business-header .container {
+        padding: 40px 15px;
+      }
+      .overview-layout {
+        flex-direction: column;
+      }
+      .overview-image {
+        flex: none;
+        max-width: 100%;
+      }
+      .overview-image img {
+        height: auto;
+      }
     }
   </style>
 </head>
@@ -91,23 +264,31 @@
   </header>
 
   <main>
-    <section class="realestate-header">
+    <!-- Banner -->
+    <section class="business-header">
+      <div class="hero-overlay"></div>
       <div class="container">
         <h1>Industrial Real Estate</h1>
         <p>Comprehensive Industrial Property Development and Management</p>
       </div>
     </section>
 
-    <section class="content-section">
+    <!-- Overview -->
+    <section class="overview-section">
       <div class="container">
         <h2>Overview</h2>
         <p>Our Industrial Real Estate sector engages in the development and sales of industrial real estate, holding and leasing of office buildings and factory properties, and industrial park operations. We leverage our extensive experience and property portfolio to provide comprehensive real estate solutions for businesses across various sectors.</p>
+      </div>
+    </section>
 
+    <!-- Core Services -->
+    <section class="services-section">
+      <div class="container">
         <h2>Core Services</h2>
         <div class="services-grid">
           <div class="service-card">
             <h3>Industrial Development</h3>
-            <p>Development of industrial parks and specialized manufacturing facilities tailored to specific industry requirements. We handle everything from land acquisition to project completion.</p>
+            <p>Development of industrial parks and specialized manufacturing facilities tailored to specific industry requirements.</p>
             <ul class="feature-list">
               <li>Site selection and planning</li>
               <li>Custom facility design</li>
@@ -118,7 +299,7 @@
 
           <div class="service-card">
             <h3>Property Management</h3>
-            <p>Comprehensive property management services for office buildings, factories, and industrial complexes. We ensure optimal property conditions and tenant satisfaction.</p>
+            <p>Comprehensive property management services for office buildings, factories, and industrial complexes.</p>
             <ul class="feature-list">
               <li>24/7 maintenance services</li>
               <li>Security management</li>
@@ -129,7 +310,7 @@
 
           <div class="service-card">
             <h3>Leasing Solutions</h3>
-            <p>Flexible leasing options for office spaces, factory buildings, and industrial facilities. We offer terms customized to meet business needs and growth plans.</p>
+            <p>Flexible leasing options for office spaces, factory buildings, and industrial facilities.</p>
             <ul class="feature-list">
               <li>Flexible lease terms</li>
               <li>Customizable spaces</li>
@@ -140,18 +321,18 @@
 
           <div class="service-card">
             <h3>Park Operations</h3>
-            <p>Full-service industrial park operations including infrastructure maintenance, shared services, and business support for park residents.</p>
+            <p>Full-service industrial park operations including infrastructure maintenance and shared services.</p>
             <ul class="feature-list">
               <li>Infrastructure management</li>
               <li>Shared facility operations</li>
-            <li>Business support services</li>
-            <li>Community management</li>
+              <li>Business support services</li>
+              <li>Community management</li>
             </ul>
           </div>
 
           <div class="service-card">
             <h3>Property Sales</h3>
-            <p>Sales of developed industrial and commercial properties, offering ownership opportunities for businesses looking to establish permanent facilities.</p>
+            <p>Sales of developed industrial and commercial properties, offering ownership opportunities.</p>
             <ul class="feature-list">
               <li>Freehold properties</li>
               <li>Custom-built facilities</li>
@@ -162,7 +343,7 @@
 
           <div class="service-card">
             <h3>Real Estate Consulting</h3>
-            <p>Professional consulting services for industrial real estate needs, including market analysis, site selection, and investment advisory.</p>
+            <p>Professional consulting services for industrial real estate needs, including market analysis.</p>
             <ul class="feature-list">
               <li>Market research</li>
               <li>Investment analysis</li>
@@ -171,63 +352,65 @@
             </ul>
           </div>
         </div>
+      </div>
+    </section>
 
-        <div class="properties-section">
-          <h3 style="color: #2563eb; text-align: center; margin-bottom: 20px;">Our Property Portfolio</h3>
-          <p style="text-align: center; margin-bottom: 30px;">We own and manage premium properties in strategic locations including Beijing, Lanzhou, Qingdao, and Huzhou, providing our clients with access to key industrial and commercial hubs across China.</p>
-
-          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px;">
-            <div style="text-align: center;">
-              <h4 style="color: #1e40af; margin-bottom: 10px;">🏢 Office Buildings</h4>
-              <p style="font-size: 0.9rem;">Modern office spaces in prime business districts</p>
+    <!-- Property Portfolio - background image, white text -->
+    <section class="portfolio-section">
+      <div class="container">
+        <div class="portfolio-inner">
+          <h2>Our Property Portfolio</h2>
+          <p>We own and manage premium properties in strategic locations including Beijing, Lanzhou, Qingdao, and Huzhou.</p>
+          <div class="portfolio-grid">
+            <div class="portfolio-item">
+              <h4>Office Buildings</h4>
+              <p>Modern office spaces in prime business districts</p>
             </div>
-            <div style="text-align: center;">
-              <h4 style="color: #1e40af; margin-bottom: 10px;">🏭 Factory Buildings</h4>
-              <p style="font-size: 0.9rem;">Industrial facilities designed for manufacturing and logistics</p>
+            <div class="portfolio-item">
+              <h4>Factory Buildings</h4>
+              <p>Industrial facilities designed for manufacturing and logistics</p>
             </div>
-            <div style="text-align: center;">
-              <h4 style="color: #1e40af; margin-bottom: 10px;">🏗️ Industrial Parks</h4>
-              <p style="font-size: 0.9rem;">Comprehensive industrial parks with full infrastructure</p>
+            <div class="portfolio-item">
+              <h4>Industrial Parks</h4>
+              <p>Comprehensive industrial parks with full infrastructure</p>
             </div>
-            <div style="text-align: center;">
-              <h4 style="color: #1e40af; margin-bottom: 10px;">📦 Warehousing</h4>
-              <p style="font-size: 0.9rem;">Logistics and distribution facilities</p>
+            <div class="portfolio-item">
+              <h4>Warehousing</h4>
+              <p>Logistics and distribution facilities</p>
             </div>
           </div>
         </div>
+      </div>
+    </section>
 
-        <div style="margin-top: 60px;">
-          <h3 style="color: #2563eb; text-align: center; margin-bottom: 30px;">Why Choose Our Industrial Real Estate Services</h3>
-          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
-            <div style="padding: 30px; background: white; border: 2px solid #2563eb; border-radius: 8px;">
-              <h4 style="color: #1e40af; margin-bottom: 15px;">Strategic Locations</h4>
-              <p>Properties located in key economic zones with excellent transportation links and access to markets and resources.</p>
-            </div>
-
-            <div style="padding: 30px; background: white; border: 2px solid #2563eb; border-radius: 8px;">
-              <h4 style="color: #1e40af; margin-bottom: 15px;">Quality Construction</h4>
-              <p>High-quality buildings designed to meet modern standards for safety, efficiency, and environmental sustainability.</p>
-            </div>
-
-            <div style="padding: 30px; background: white; border: 2px solid #2563eb; border-radius: 8px;">
-              <h4 style="color: #1e40af; margin-bottom: 15px;">Comprehensive Services</h4>
-              <p>End-to-end services from development and construction to ongoing management and maintenance.</p>
-            </div>
-
-            <div style="padding: 30px; background: white; border: 2px solid #2563eb; border-radius: 8px;">
-              <h4 style="color: #1e40af; margin-bottom: 15px;">Flexible Solutions</h4>
-              <p>Customized solutions to meet specific business needs, whether for lease, purchase, or build-to-suit projects.</p>
-            </div>
-
-            <div style="padding: 30px; background: white; border: 2px solid #2563eb; border-radius: 8px;">
-              <h4 style="color: #1e40af; margin-bottom: 15px;">Experienced Team</h4>
-              <p>Professional team with extensive experience in industrial real estate development and management.</p>
-            </div>
-
-            <div style="padding: 30px; background: white; border: 2px solid #2563eb; border-radius: 8px;">
-              <h4 style="color: #1e40af; margin-bottom: 15px;">Long-term Partnership</h4>
-              <p>Commitment to building lasting relationships with clients through reliable service and support.</p>
-            </div>
+    <!-- Why Choose Us -->
+    <section class="why-section">
+      <div class="container">
+        <h2>Why Choose Our Industrial Real Estate Services</h2>
+        <div class="why-grid">
+          <div class="why-card">
+            <h4>Strategic Locations</h4>
+            <p>Properties located in key economic zones with excellent transportation links and access to markets and resources.</p>
+          </div>
+          <div class="why-card">
+            <h4>Quality Construction</h4>
+            <p>High-quality buildings designed to meet modern standards for safety, efficiency, and environmental sustainability.</p>
+          </div>
+          <div class="why-card">
+            <h4>Comprehensive Services</h4>
+            <p>End-to-end services from development and construction to ongoing management and maintenance.</p>
+          </div>
+          <div class="why-card">
+            <h4>Flexible Solutions</h4>
+            <p>Customized solutions to meet specific business needs, whether for lease, purchase, or build-to-suit projects.</p>
+          </div>
+          <div class="why-card">
+            <h4>Experienced Team</h4>
+            <p>Professional team with extensive experience in industrial real estate development and management.</p>
+          </div>
+          <div class="why-card">
+            <h4>Long-term Partnership</h4>
+            <p>Commitment to building lasting relationships with clients through reliable service and support.</p>
           </div>
         </div>
       </div>

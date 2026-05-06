@@ -7,59 +7,227 @@
   <link rel="stylesheet" href="assets/css/style.css?v=20250424d">
   <link rel="stylesheet" href="assets/css/images.css">
   <style>
-    .scenic-header {
-      background: linear-gradient(135deg, #2d5a27, #4a7c43);
+    /* Banner */
+    .business-header {
+      position: relative;
       color: white;
       text-align: center;
-      padding: 80px 20px;
+      padding: 0;
+      min-height: 400px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-image: url('images/bgh/banner2.png');
+      background-image: image-set(
+        url('images/bgh/banner2.png') 1x,
+        url('images/bgh/banner2@2x.png') 2x,
+        url('images/bgh/banner2@3x.png') 3x
+      );
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
     }
-    .scenic-header h1 {
-      font-size: 2.5rem;
-      margin-bottom: 15px;
+    .business-header .hero-overlay {
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: linear-gradient(135deg, rgba(45, 90, 39, 0.2), rgba(74, 124, 67, 0.3));
+      z-index: 1;
     }
-    .content-section {
+    .business-header .container {
+      position: relative;
+      z-index: 2;
       padding: 60px 20px;
     }
+    .business-header h1 {
+      font-size: clamp(1.8rem, 4vw, 2.5rem);
+      margin-bottom: 15px;
+    }
+    .business-header p {
+      font-size: clamp(1rem, 1.5vw, 1.25rem);
+      opacity: 0.9;
+    }
+
+    /* Overview */
+    .overview-section {
+      padding: clamp(25px, 3vw, 40px) 20px;
+    }
+    .overview-section h2 {
+      color: #333;
+      margin-bottom: 15px;
+    }
+    .overview-section p {
+      line-height: 1.8;
+      color: #555;
+    }
+
+    /* Feature Highlight - background image with white text */
+    .feature-section {
+      padding: clamp(40px, 5vw, 60px) 20px;
+    }
+    .feature-inner {
+      position: relative;
+      border-radius: 12px;
+      overflow: hidden;
+      background-image: url('images/bgh/底图.png');
+      background-image: image-set(
+        url('images/bgh/底图.png') 1x,
+        url('images/bgh/底图@2x.png') 2x,
+        url('images/bgh/底图@3x.png') 3x
+      );
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      padding: clamp(30px, 4vw, 50px);
+    }
+    .feature-inner::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: transparent;
+      z-index: 0;
+    }
+    .feature-inner > * {
+      position: relative;
+      z-index: 1;
+    }
+    .feature-inner h2 {
+      color: white;
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: clamp(1.4rem, 2.5vw, 1.8rem);
+    }
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 15px;
+    }
+    .feature-item {
+      text-align: center;
+      padding: 15px 10px;
+    }
+    .feature-item h4 {
+      color: white;
+      margin-bottom: 10px;
+      font-size: clamp(1rem, 1.5vw, 1.2rem);
+    }
+    .feature-item p {
+      color: rgba(255,255,255,0.8);
+      font-size: clamp(0.85rem, 1.1vw, 0.95rem);
+      line-height: 1.6;
+    }
+
+    /* Attraction Cards - same pattern as finance-taxation service-card */
     .attraction-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 30px;
-      margin: 40px 0;
+      margin-top: 30px;
     }
     .attraction-card {
-      background: white;
-      padding: 30px;
-      border-radius: 8px;
+      position: relative;
+      border-radius: 24px;
       box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-      border-top: 4px solid #4a7c43;
+      padding: 30px;
+      overflow: hidden;
+      min-height: 280px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      background-image: url('images/bgh/底1.png');
+      background-image: image-set(
+        url('images/bgh/底1.png') 1x,
+        url('images/bgh/底1@2x.png') 2x,
+        url('images/bgh/底1@3x.png') 3x
+      );
+      background-size: 100% 100%;
+      background-position: center;
+      background-repeat: no-repeat;
     }
     .attraction-card h3 {
-      color: #4a7c43;
+      color: #487b42;
       margin-bottom: 15px;
       font-size: 1.3rem;
     }
-    .feature-highlight {
-      background: linear-gradient(135deg, #f9f9f9, #e8f5e9);
-      padding: 40px;
-      border-radius: 8px;
-      margin: 40px 0;
+    .attraction-card p {
+      color: #555;
+      font-size: 0.95rem;
+      line-height: 1.7;
     }
+
+    /* Seasons */
     .seasons {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 20px;
-      margin: 30px 0;
+      margin-top: 30px;
     }
     .season-card {
       text-align: center;
       padding: 25px;
-      background: white;
-      border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      background: #f5f5f5;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
     }
     .season-card h4 {
+      color: #42763b;
+      margin-bottom: 10px;
+      font-size: 1.1rem;
+    }
+    .season-card p {
+      color: #666;
+      font-size: 0.9rem;
+      line-height: 1.6;
+    }
+
+    /* Sustainable Tourism */
+    .sustainability {
+      margin-top: 60px;
+      padding: clamp(30px, 4vw, 40px);
+      background: #f9f9f9;
+      border-radius: 12px;
+      border: 2px solid #2d5a27;
+    }
+    .sustainability h2 {
+      color: #2d5a27;
+      text-align: center;
+      margin-bottom: 15px;
+    }
+    .sustainability > p {
+      text-align: center;
+      color: #666;
+      margin-bottom: 30px;
+    }
+    .sustain-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 30px;
+    }
+    .sustain-item h4 {
       color: #4a7c43;
       margin-bottom: 10px;
+      text-align: center;
+    }
+    .sustain-item p {
+      color: #666;
+      font-size: 0.9rem;
+      text-align: center;
+    }
+
+    @media (max-width: 768px) {
+      .business-header {
+        min-height: 300px;
+      }
+      .business-header .container {
+        padding: 40px 15px;
+      }
+      .feature-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    @media (max-width: 480px) {
+      .feature-grid {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
@@ -94,40 +262,53 @@
   </header>
 
   <main>
-    <section class="scenic-header">
+    <!-- Banner -->
+    <section class="business-header">
+      <div class="hero-overlay"></div>
       <div class="container">
         <h1>Binggouhe Scenic Spot</h1>
         <p>Qilian Mountain's Premier Ecological Tourism Destination</p>
       </div>
     </section>
 
-    <section class="content-section">
+    <!-- Overview -->
+    <section class="overview-section">
       <div class="container">
         <h2>About Binggouhe Scenic Spot</h2>
         <p>Located in the majestic Qilian Mountains, Binggouhe Scenic Spot is a breathtaking destination that showcases the pristine beauty of Northwestern China's natural landscape. Our mission is to develop this area into a premier 5A-level scenic destination that integrates ecological protection, cultural tourism, and leisure resort experiences.</p>
+      </div>
+    </section>
 
-        <div class="feature-highlight">
-          <h3 style="color: #4a7c43; text-align: center; margin-bottom: 20px;">Scenic Spot Highlights</h3>
-          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px;">
-            <div style="text-align: center;">
-              <h4 style="color: #2d5a27; margin-bottom: 10px;">🏔️ Mountain Landscapes</h4>
-              <p style="font-size: 0.9rem;">Spectacular snow-capped peaks and pristine mountain ecosystems</p>
+    <!-- Feature Highlight - background image, white text -->
+    <section class="feature-section">
+      <div class="container">
+        <div class="feature-inner">
+          <h2>Scenic Spot Highlights</h2>
+          <div class="feature-grid">
+            <div class="feature-item">
+              <h4>Mountain Landscapes</h4>
+              <p>Spectacular snow-capped peaks and pristine mountain ecosystems</p>
             </div>
-            <div style="text-align: center;">
-              <h4 style="color: #2d5a27; margin-bottom: 10px;">🌲 Alpine Meadows</h4>
-              <p style="font-size: 0.9rem;">Lush alpine meadows with diverse flora and fauna</p>
+            <div class="feature-item">
+              <h4>Alpine Meadows</h4>
+              <p>Lush alpine meadows with diverse flora and fauna</p>
             </div>
-            <div style="text-align: center;">
-              <h4 style="color: #2d5a27; margin-bottom: 10px;">💧 Crystal Waters</h4>
-              <p style="font-size: 0.9rem;">Pristine rivers, waterfalls, and high-altitude lakes</p>
+            <div class="feature-item">
+              <h4>Crystal Waters</h4>
+              <p>Pristine rivers, waterfalls, and high-altitude lakes</p>
             </div>
-            <div style="text-align: center;">
-              <h4 style="color: #2d5a27; margin-bottom: 10px;">🌿 Cultural Heritage</h4>
-              <p style="font-size: 0.9rem;">Rich Tibetan and Mongolian cultural traditions</p>
+            <div class="feature-item">
+              <h4>Cultural Heritage</h4>
+              <p>Rich Tibetan and Mongolian cultural traditions</p>
             </div>
           </div>
         </div>
+      </div>
+    </section>
 
+    <!-- Major Attractions -->
+    <section class="overview-section">
+      <div class="container">
         <h2>Major Attractions</h2>
         <div class="attraction-grid">
           <div class="attraction-card">
@@ -161,49 +342,56 @@
             <p>Experience the rich cultural heritage of local ethnic communities through traditional performances, handicraft demonstrations, and authentic local cuisine.</p>
           </div>
         </div>
+      </div>
+    </section>
 
+    <!-- Seasonal Experiences -->
+    <section class="overview-section">
+      <div class="container">
         <h2>Seasonal Experiences</h2>
         <div class="seasons">
           <div class="season-card">
             <h4>Spring (April-June)</h4>
             <p>Wildflowers bloom across the meadows, creating colorful carpets against the snow-capped peaks. Perfect for nature walks and photography.</p>
           </div>
-
           <div class="season-card">
             <h4>Summer (July-August)</h4>
             <p>Peak season with pleasant temperatures, lush greenery, and clear skies. Ideal for hiking, camping, and outdoor activities.</p>
           </div>
-
           <div class="season-card">
             <h4>Autumn (September-October)</h4>
             <p>Foliage turns brilliant shades of gold and red, creating stunning autumn landscapes. Great for scenic drives and photography.</p>
           </div>
-
           <div class="season-card">
             <h4>Winter (November-March)</h4>
             <p>Snow transforms the landscape into a winter wonderland. Offers winter photography and snow activities (weather permitting).</p>
           </div>
         </div>
+      </div>
+    </section>
 
-        <div style="margin-top: 60px; padding: 40px; background: white; border: 2px solid #4a7c43; border-radius: 8px;">
-          <h3 style="color: #4a7c43; text-align: center;">Sustainable Tourism Commitment</h3>
-          <p style="text-align: center; margin-top: 20px;">We are committed to developing Binggouhe Scenic Spot as a model for sustainable tourism that balances economic development with ecological preservation. Our development philosophy emphasizes:</p>
-          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-top: 30px;">
-            <div style="text-align: center;">
-              <h4 style="color: #2d5a27; margin-bottom: 10px;">🌱 Ecological Protection</h4>
-              <p style="font-size: 0.9rem;">Preserving natural habitats and biodiversity</p>
+    <!-- Sustainable Tourism -->
+    <section class="overview-section">
+      <div class="container">
+        <div class="sustainability">
+          <h2>Sustainable Tourism Commitment</h2>
+          <p>We are committed to developing Binggouhe Scenic Spot as a model for sustainable tourism that balances economic development with ecological preservation.</p>
+          <div class="sustain-grid">
+            <div class="sustain-item">
+              <h4>🌱 Ecological Protection</h4>
+              <p>Preserving natural habitats and biodiversity</p>
             </div>
-            <div style="text-align: center;">
-              <h4 style="color: #2d5a27; margin-bottom: 10px;">👨‍👩‍👧‍👦 Community Benefits</h4>
-              <p style="font-size: 0.9rem;">Creating local employment and economic opportunities</p>
+            <div class="sustain-item">
+              <h4>👨‍👩‍👧‍👦 Community Benefits</h4>
+              <p>Creating local employment and economic opportunities</p>
             </div>
-            <div style="text-align: center;">
-              <h4 style="color: #2d5a27; margin-bottom: 10px;">🎓 Cultural Preservation</h4>
-              <p style="font-size: 0.9rem;">Protecting and celebrating local cultural heritage</p>
+            <div class="sustain-item">
+              <h4>🎓 Cultural Preservation</h4>
+              <p>Protecting and celebrating local cultural heritage</p>
             </div>
-            <div style="text-align: center;">
-              <h4 style="color: #2d5a27; margin-bottom: 10px;">♻️ Sustainable Practices</h4>
-              <p style="font-size: 0.9rem;">Implementing eco-friendly tourism operations</p>
+            <div class="sustain-item">
+              <h4>♻️ Sustainable Practices</h4>
+              <p>Implementing eco-friendly tourism operations</p>
             </div>
           </div>
         </div>
