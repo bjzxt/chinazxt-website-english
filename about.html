@@ -7,29 +7,57 @@
   <link rel="stylesheet" href="assets/css/style.css?v=20250424d">
   <link rel="stylesheet" href="assets/css/images.css">
   <style>
+    /* Banner */
     .about-hero {
-      background: linear-gradient(135deg, #1e40af, #2563eb);
+      position: relative;
       color: white;
       text-align: center;
-      padding: 80px 20px;
+      padding: 0;
+      min-height: 400px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-image: url('images/about/banner1.png');
+      background-image: image-set(
+        url('images/about/banner1.png') 1x,
+        url('images/about/banner1@2x.png') 2x
+      );
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+    .about-hero .hero-overlay {
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: linear-gradient(135deg, rgba(37, 99, 235, 0.2), rgba(30, 64, 175, 0.3));
+      z-index: 1;
+    }
+    .about-hero .container {
+      position: relative;
+      z-index: 2;
+      padding: 60px 20px;
     }
     .about-hero h1 {
-      font-size: 2.5rem;
+      font-size: clamp(1.8rem, 4vw, 2.5rem);
       margin-bottom: 15px;
     }
     .about-hero p {
-      font-size: 1.2rem;
+      font-size: clamp(1rem, 1.5vw, 1.25rem);
       opacity: 0.9;
     }
+
+    /* Sections */
     .content-section {
-      padding: 60px 20px;
+      padding: 40px 20px;
     }
-    .content-section h2 {
-      color: #2563eb;
-      margin-bottom: 25px;
-      font-size: 2rem;
-      border-bottom: 2px solid #2563eb;
+    .content-section h2,
+    .history-section h2,
+    .values-section h2 {
+      color: #1e40af;
+      margin-bottom: 15px;
+      font-size: clamp(1.4rem, 2.5vw, 1.8rem);
       padding-bottom: 10px;
+      border-bottom: 2px solid #2563eb;
     }
     .content-section h3 {
       color: #1e40af;
@@ -40,12 +68,71 @@
     .content-section p {
       line-height: 1.8;
       margin-bottom: 15px;
-      font-size: 1.05rem;
+      color: #555;
+    }
+
+    /* Group Profile stats - blue bg, white text */
+    #profile .honor-item {
+      background: #2563eb;
+      border-radius: 12px;
+      color: white;
+    }
+    #profile .honor-item h4 {
+      color: white;
+    }
+    #profile .honor-item p {
+      color: rgba(255,255,255,0.9);
+      font-size: 1.2rem;
+      font-weight: 700;
+    }
+
+    /* Honor Items */
+    .honors-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      margin-top: 30px;
+    }
+    .honor-item {
+      background: #f9f9f9;
+      padding: 20px;
+      border-radius: 8px;
+      text-align: center;
+    }
+    .honor-item h4 {
+      color: #2563eb;
+      margin-bottom: 10px;
+    }
+    .honor-item p {
+      color: #555;
+      font-size: 0.95rem;
+    }
+
+    /* Chairman */
+    .chairman-inner {
+    }
+
+    /* Development History - background image full width */
+    .history-section {
+      position: relative;
+      padding: 60px 20px;
+      background-image: url('images/about/底图.png');
+      background-image: image-set(
+        url('images/about/底图.png') 1x,
+        url('images/about/底图@2x.png') 2x
+      );
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+    .history-section .container {
+      position: relative;
+      z-index: 1;
     }
     .timeline {
       position: relative;
       padding-left: 30px;
-      margin-top: 30px;
+      margin-top: 20px;
     }
     .timeline-item {
       position: relative;
@@ -68,21 +155,22 @@
       color: #2563eb;
       font-size: 1.1rem;
     }
-    .honors-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 20px;
-      margin-top: 30px;
+    .timeline-item p {
+      color: #555;
     }
-    .honor-item {
-      background: #f9f9f9;
-      padding: 20px;
-      border-radius: 8px;
-      text-align: center;
-    }
-    .honor-item h4 {
-      color: #2563eb;
-      margin-bottom: 10px;
+
+    /* Values - background image full width */
+    .values-section {
+      position: relative;
+      padding: clamp(40px, 5vw, 60px) 20px;
+      background-image: url('images/about/背景图.png');
+      background-image: image-set(
+        url('images/about/背景图.png') 1x,
+        url('images/about/背景图@2x.png') 2x
+      );
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
     }
     .values-list {
       display: grid;
@@ -93,13 +181,27 @@
     .value-item {
       background: white;
       padding: 25px;
-      border-left: 4px solid #2563eb;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      border-radius: 8px;
     }
     .value-item h4 {
       color: #2563eb;
       margin-bottom: 10px;
       font-size: 1.2rem;
+      padding-bottom: 10px;
+      border-bottom: 1px solid rgba(0,0,0,0.1);
+    }
+    .value-item p {
+      color: #555;
+    }
+
+    /* Careers */
+    @media (max-width: 768px) {
+      .about-hero {
+        min-height: 300px;
+      }
+      .about-hero .container {
+        padding: 40px 15px;
+      }
     }
   </style>
 </head>
@@ -134,13 +236,16 @@
   </header>
 
   <main>
+    <!-- Banner -->
     <section class="about-hero">
+      <div class="hero-overlay"></div>
       <div class="container">
         <h1>About Zhongxingtong Group</h1>
         <p>30 Years of Excellence and Innovation</p>
       </div>
     </section>
 
+    <!-- Group Profile -->
     <section class="content-section" id="profile">
       <div class="container">
         <h2>Group Profile</h2>
@@ -167,16 +272,20 @@
       </div>
     </section>
 
-    <section class="content-section" id="chairman" style="background: #f9f9f9;">
+    <!-- Chairman's Message -->
+    <section class="content-section" id="chairman">
       <div class="container">
+        <div class="chairman-inner">
         <h2>Chairman's Message</h2>
         <p>"From our humble beginnings in 1994, Zhongxingtong Group has grown through dedication, innovation, and an unwavering commitment to excellence. Our journey has been guided by a simple philosophy: build long-term value for our clients, employees, and society."</p>
         <p>"Today, as we operate across five diverse business sectors, we remain true to our founding principles. We believe that sustainable growth comes from responsible business practices, continuous innovation, and a talented team that shares our vision."</p>
         <p>"Looking ahead, we are committed to driving progress in each of our business sectors while maintaining the values that have guided us for three decades: integrity, professionalism, and social responsibility."</p>
+        </div>
       </div>
     </section>
 
-    <section class="content-section" id="history">
+    <!-- Development History - background image -->
+    <section class="history-section" id="history">
       <div class="container">
         <h2>Development History</h2>
         <div class="timeline">
@@ -200,7 +309,8 @@
       </div>
     </section>
 
-    <section class="content-section" id="honors" style="background: #f9f9f9;">
+    <!-- Honors -->
+    <section class="content-section" id="honors">
       <div class="container">
         <h2>Honors & Qualifications</h2>
         <div class="honors-grid">
@@ -224,38 +334,31 @@
       </div>
     </section>
 
-    <section class="content-section" id="values">
+    <!-- Values -->
+    <section class="values-section" id="values">
       <div class="container">
         <h2>Our Values</h2>
-        <div class="values-list">
-          <div class="value-item">
-            <h4>Integrity & Responsibility</h4>
-            <p>We conduct business with honesty and take responsibility for our actions and decisions.</p>
+          <div class="values-list">
+            <div class="value-item">
+              <h4>Integrity & Responsibility</h4>
+              <p>We conduct business with honesty and take responsibility for our actions and decisions.</p>
+            </div>
+            <div class="value-item">
+              <h4>Excellence & Innovation</h4>
+              <p>Continuous improvement and innovation drive our pursuit of excellence.</p>
+            </div>
+            <div class="value-item">
+              <h4>Collaboration & Teamwork</h4>
+              <p>Success is achieved through effective collaboration and teamwork.</p>
+            </div>
+            <div class="value-item">
+              <h4>Customer Focus</h4>
+              <p>Customer satisfaction is the foundation of our business and growth.</p>
+            </div>
           </div>
-          <div class="value-item">
-            <h4>Excellence & Innovation</h4>
-            <p>Continuous improvement and innovation drive our pursuit of excellence.</p>
-          </div>
-          <div class="value-item">
-            <h4>Collaboration & Teamwork</h4>
-            <p>Success is achieved through effective collaboration and teamwork.</p>
-          </div>
-          <div class="value-item">
-            <h4>Customer Focus</h4>
-            <p>Customer satisfaction is the foundation of our business and growth.</p>
-          </div>
-        </div>
       </div>
     </section>
 
-    <section class="content-section" id="careers" style="background: #f9f9f9;">
-      <div class="container">
-        <h2>Join Our Team</h2>
-        <p>Zhongxingtong Group is always looking for talented individuals to join our team. We offer competitive compensation, comprehensive benefits, and opportunities for professional growth across our five business sectors.</p>
-        <p>If you are passionate about making a difference and want to be part of a dynamic organization, we encourage you to explore career opportunities with us.</p>
-        <a href="contact.html" class="btn btn-primary">Contact HR Department</a>
-      </div>
-    </section>
   </main>
 
     <footer>
