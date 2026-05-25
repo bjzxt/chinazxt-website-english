@@ -89,6 +89,10 @@ body {
   font-weight: 500;
   transition: color 0.3s;
 }
+.nav-links a:focus {
+  outline: none;
+  color: var(--primary-color);
+}
 
 /* Dropdown Menu */
 .dropdown {

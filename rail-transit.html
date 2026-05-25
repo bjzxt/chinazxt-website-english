@@ -18,11 +18,6 @@
       align-items: center;
       justify-content: center;
       background-image: url('images/trail/banner.png');
-      background-image: image-set(
-        url('images/trail/banner.png') 1x,
-        url('images/trail/banner@2x.png') 2x,
-        url('images/trail/banner@3x.png') 3x
-      );
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
@@ -67,6 +62,7 @@
       height: 100%;
       object-fit: cover;
       display: block;
+      border-radius: 24px;
     }
     .overview-text {
       flex: 1;
@@ -184,11 +180,6 @@
       border-radius: 12px;
       overflow: hidden;
       background-image: url('images/trail/bg-quality.png');
-      background-image: image-set(
-        url('images/trail/bg-quality.png') 1x,
-        url('images/trail/bg-quality@2x.png') 2x,
-        url('images/trail/bg-quality@3x.png') 3x
-      );
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
@@ -239,11 +230,6 @@
       position: relative;
       padding: clamp(40px, 5vw, 60px) 20px;
       background-image: url('images/trail/bg-apps.png');
-      background-image: image-set(
-        url('images/trail/bg-apps.png') 1x,
-        url('images/trail/bg-apps@2x.png') 2x,
-        url('images/trail/bg-apps@3x.png') 3x
-      );
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
@@ -340,7 +326,7 @@
     <nav class="navbar">
       <div class="container nav-container">
         <a href="index.html" class="logo">
-          <img src="images/logo.png" srcset="images/logo@2x.png 2x" alt="Zhongxingtong Group">
+          <img src="images/logo.png" alt="Zhongxingtong Group">
         </a>
         <button class="mobile-menu-btn" aria-label="Toggle menu">
           <span></span><span></span><span></span>
@@ -379,9 +365,7 @@
       <div class="container">
         <div class="overview-layout">
           <div class="overview-image">
-            <img src="images/trail/2.png"
-                 srcset="images/trail/2.png 1x, images/trail/2@2x.png 2x, images/trail/2@3x.png 3x"
-                 alt="Rail Transit Components">
+            <img src="images/trail/2.png" alt="Rail Transit Components">
           </div>
           <div class="overview-text">
             <div class="overview-text-inner">
