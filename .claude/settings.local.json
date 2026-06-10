@@ -25,7 +25,11 @@
       "Bash(curl -sL \"https://www.chinazxt.com/favicon.ico\" -o D:/IdeaProjects/chinazxt-website-english/favicon.ico)",
       "Bash(curl -sL \"https://www.zxt-group.com/\")",
       "Bash(curl -sL \"https://www.zxt-group.com/assets/css/style.css\")",
-      "Bash(git remote *)"
+      "Bash(git remote *)",
+      "Bash(git commit *)",
+      "Bash(gh auth *)",
+      "Bash(git merge *)",
+      "Bash(git stash *)"
     ]
   }
 }
